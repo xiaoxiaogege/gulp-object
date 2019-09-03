@@ -11,8 +11,12 @@ module.exports = {
         dest: dest
     },
     js:{
-        src: [src + "/**/*.js"],
+        src: [src + "/**/*.js","!./src/lib/*.js"],
         dest: dest
+    },
+    vendor:{
+        src:[src+"/lib/*.js"],
+        dest: dest+'/lib'
     },
     images:{
         src: [src + '/**/*.jpg',src + '/**/*.png',src + '/**/*.gif'],

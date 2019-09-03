@@ -25,6 +25,13 @@ gulp.task('es2015',function(){
         .pipe(gulp.dest(config.js.dest));
 })
 
+//对指定的目录不做编译，但需要打包到dist
+gulp.task('copyVendor',function(){
+    return gulp.src(config.vendor.src)
+	.pipe(gulp.dest(config.vendor.dest));
+})
+
+
 //压缩css
 gulp.task('minCss',function(){
     return gulp.src(config.css.src)
@@ -62,5 +69,5 @@ gulp.task('minImages',function(){
 
 gulp.task('default',['clean'],function(){
     console.log('default clean finish')
-    gulp.start('es2015','minCss','minHtml','minImages')
+    gulp.start('es2015','copyVendor','minCss','minHtml','minImages')
 })
